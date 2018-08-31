@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_movie_poster"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/poster_margin_down"
+    android:layout_marginTop="@dimen/poster_margin_top">
+
+    <ImageView
+        android:id="@+id/img_movie_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/movie_poster" />
+
+    <TextView
+        android:id="@+id/tv_movie_title"
+        android:layout_below="@id/img_movie_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        tools:text="Avenger's Infinity War" />
+
+</RelativeLayout>
