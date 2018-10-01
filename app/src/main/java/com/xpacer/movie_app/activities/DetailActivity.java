@@ -39,26 +39,26 @@ import butterknife.ButterKnife;
 public class DetailActivity extends AppCompatActivity implements NetworkUtils.QueryResult {
 
     @BindView(R.id.tv_release_date)
-    private TextView mReleaseDateTextView;
+    TextView mReleaseDateTextView;
     @BindView(R.id.tv_original_title)
-    private TextView mOriginalTitleTextView;
+    TextView mOriginalTitleTextView;
     @BindView(R.id.tv_ratings)
-    private TextView mRatingsTextView;
+    TextView mRatingsTextView;
     @BindView(R.id.img_movie_poster)
-    private ImageView mPosterImageView;
+    ImageView mPosterImageView;
     @BindView(R.id.tv_plot_summary)
-    private TextView mPlotSummaryTextView;
+    TextView mPlotSummaryTextView;
     @BindView(R.id.rv_movie_reviews)
-    private RecyclerView rvMovieReviews;
+    RecyclerView rvMovieReviews;
     @BindView(R.id.progress_bar)
-    private ProgressBar mSpinner;
+    ProgressBar mSpinner;
     @BindView(R.id.tv_watch_trailer)
-    private TextView mWatchTrailer;
+    TextView mWatchTrailer;
     @BindView(R.id.tv_like_movie)
-    private TextView mLikeMovie;
+    TextView mLikeMovie;
     private RecyclerView rvTrailers;
     @BindView(R.id.tv_no_reviews)
-    private TextView mNoReviews;
+    TextView mNoReviews;
     private Dialog trailerDialog;
 
     private MoviesReviewListAdapter reviewListAdapter;
