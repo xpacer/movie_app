@@ -34,10 +34,10 @@ import static com.xpacer.movie_app.data.enums.MovieListState.TOP_RATED;
 public class MainActivity extends AppCompatActivity implements NetworkUtils.QueryResult {
 
     @BindView(R.id.rv_movies_list)
-    RecyclerView rvMoviesList;
+    private RecyclerView rvMoviesList;
 
     @BindView(R.id.progress_bar)
-    ProgressBar mProgressBar;
+    private ProgressBar mProgressBar;
 
     private MoviesListAdapter moviesListAdapter;
     private List<Movie> favouriteMovies;
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NetworkUtils.Quer
         });
     }
 
-    void setupMovieAdapter() {
+    private void setupMovieAdapter() {
         if (movieListState == null || getSupportActionBar() == null) {
             return;
         }

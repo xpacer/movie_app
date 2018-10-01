@@ -39,27 +39,27 @@ import butterknife.ButterKnife;
 public class DetailActivity extends AppCompatActivity implements NetworkUtils.QueryResult {
 
     @BindView(R.id.tv_release_date)
-    TextView mReleaseDateTextView;
+    private TextView mReleaseDateTextView;
     @BindView(R.id.tv_original_title)
-    TextView mOriginalTitleTextView;
+    private TextView mOriginalTitleTextView;
     @BindView(R.id.tv_ratings)
-    TextView mRatingsTextView;
+    private TextView mRatingsTextView;
     @BindView(R.id.img_movie_poster)
-    ImageView mPosterImageView;
+    private ImageView mPosterImageView;
     @BindView(R.id.tv_plot_summary)
-    TextView mPlotSummaryTextView;
+    private TextView mPlotSummaryTextView;
     @BindView(R.id.rv_movie_reviews)
-    RecyclerView rvMovieReviews;
+    private RecyclerView rvMovieReviews;
     @BindView(R.id.progress_bar)
-    ProgressBar mSpinner;
+    private ProgressBar mSpinner;
     @BindView(R.id.tv_watch_trailer)
-    TextView mWatchTrailer;
+    private TextView mWatchTrailer;
     @BindView(R.id.tv_like_movie)
-    TextView mLikeMovie;
-    RecyclerView rvTrailers;
+    private TextView mLikeMovie;
+    private RecyclerView rvTrailers;
     @BindView(R.id.tv_no_reviews)
-    TextView mNoReviews;
-    Dialog trailerDialog;
+    private TextView mNoReviews;
+    private Dialog trailerDialog;
 
     private MoviesReviewListAdapter reviewListAdapter;
     private MoviesTrailerListAdapter trailerListAdapter;
@@ -154,14 +154,14 @@ public class DetailActivity extends AppCompatActivity implements NetworkUtils.Qu
     private void setupLikeButton(boolean movieIsFavourite) {
         if (movieIsFavourite) {
             mLikeMovie.setText(R.string.your_favourite);
-            mLikeMovie.setCompoundDrawablesWithIntrinsicBounds( R.drawable.ic_star_amber_24dp, 0, 0, 0);
+            mLikeMovie.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_star_amber_24dp, 0, 0, 0);
         } else {
             mLikeMovie.setText(R.string.favourite_text);
-            mLikeMovie.setCompoundDrawablesWithIntrinsicBounds( R.drawable.ic_star_border_black_24dp, 0, 0, 0);
+            mLikeMovie.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_star_border_black_24dp, 0, 0, 0);
         }
     }
 
-    void fetchTrailer(int movieId) {
+    private void fetchTrailer(int movieId) {
         ApiCallerTask apiCaller = new ApiCallerTask(this, this, null);
         String reviewPath = String.format(Constants.VIDEOS_PATH, String.valueOf(movieId));
         setMode(ApiCallerMode.FETCH_TRAILERS);
@@ -213,7 +213,7 @@ public class DetailActivity extends AppCompatActivity implements NetworkUtils.Qu
         }
     }
 
-    void setupReviewsList(List<MovieReview> movieReviews) {
+    private void setupReviewsList(List<MovieReview> movieReviews) {
         if (movieReviews.size() > 0) {
             reviewListAdapter.setMovieReviews(movieReviews);
             mNoReviews.setVisibility(View.GONE);
@@ -225,7 +225,7 @@ public class DetailActivity extends AppCompatActivity implements NetworkUtils.Qu
 
     }
 
-    void showDialog(List<MovieTrailer> movieTrailers) {
+    private void showDialog(List<MovieTrailer> movieTrailers) {
         trailerListAdapter.setMovieTrailers(movieTrailers);
         if (movieTrailers.size() > 0) {
             rvTrailers.setVisibility(View.VISIBLE);
@@ -238,11 +238,11 @@ public class DetailActivity extends AppCompatActivity implements NetworkUtils.Qu
         trailerDialog.show();
     }
 
-    public void setMode(ApiCallerMode mode) {
+    private void setMode(ApiCallerMode mode) {
         this.mode = mode;
     }
 
-    public ApiCallerMode getMode() {
+    private ApiCallerMode getMode() {
         return mode;
     }
 

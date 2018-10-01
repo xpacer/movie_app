@@ -25,7 +25,7 @@ public class NetworkUtils {
     /**
      * Insert API Key Here
      */
-    private static final String API_KEY = "46823330bf727748336313f01791d94d";
+    private static final String API_KEY = "";
 
     public static URL buildUrl(String path) {
         Uri moviesQueryUri = Uri.parse(MOVIE_DB_BASE_URL).buildUpon()
@@ -42,7 +42,7 @@ public class NetworkUtils {
         }
     }
 
-    public static String getResponseFromHttpUrl(URL url) throws IOException {
+    private static String getResponseFromHttpUrl(URL url) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try {
             InputStream in = urlConnection.getInputStream();
@@ -68,7 +68,7 @@ public class NetworkUtils {
      * @param context : Context
      * @return boolean
      */
-    public static boolean isConnected(Context context) {
+    private static boolean isConnected(Context context) {
 
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         // test for connection
