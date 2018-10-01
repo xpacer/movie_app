@@ -3,13 +3,17 @@ package com.xpacer.movie_app.data.models;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
 @Entity(tableName = "movies")
-public class Movie implements Serializable {
+public class Movie implements Parcelable {
+    public Movie() {
+
+    }
+
     @PrimaryKey
     private int id;
     private boolean video;
@@ -45,6 +49,18 @@ public class Movie implements Serializable {
     @SerializedName("release_date")
     @ColumnInfo(name = "release_date")
     private String releaseDate;
+
+    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
+        }
+
+        @Override
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -110,14 +126,6 @@ public class Movie implements Serializable {
         this.originalTitle = originalTitle;
     }
 
-//    public int[] getGenreIds() {
-//        return genreIds;
-//    }
-//
-//    public void setGenreIds(int[] genreIds) {
-//        this.genreIds = genreIds;
-//    }
-
     public String getBackdropPath() {
         return backdropPath;
     }
@@ -148,5 +156,41 @@ public class Movie implements Serializable {
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeDouble(voteAverage);
+        parcel.writeString(title);
+        parcel.writeDouble(popularity);
+        parcel.writeString(posterPath);
+        parcel.writeString(originalTitle);
+        parcel.writeString(originalLanguage);
+        parcel.writeString(releaseDate);
+        parcel.writeString(overview);
+        parcel.writeString(backdropPath);
+        parcel.writeInt(video ? 1 : 0);
+        parcel.writeInt(adult ? 1 : 0);
+    }
+
+    private Movie(Parcel in) {
+        id = in.readInt();
+        voteAverage = in.readDouble();
+        title = in.readString();
+        popularity = in.readDouble();
+        posterPath = in.readString();
+        originalTitle = in.readString();
+        originalLanguage = in.readString();
+        releaseDate = in.readString();
+        overview = in.readString();
+        backdropPath = in.readString();
+        video = in.readInt() != 0;
+        adult = in.readInt() != 0;
     }
 }

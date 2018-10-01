@@ -19,6 +19,9 @@ import com.xpacer.movie_app.utils.Constants;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.MovieViewHolder> {
 
     private final Context mContext;
@@ -69,15 +72,16 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
 
     class MovieViewHolder extends RecyclerView.ViewHolder {
 
-        final ImageView moviePoster;
-        final TextView movieTitle;
-        final RelativeLayout moviePosterLayout;
+        @BindView(R.id.img_movie_poster)
+        ImageView moviePoster;
+        @BindView(R.id.tv_movie_title)
+        TextView movieTitle;
+        @BindView(R.id.rl_movie_poster)
+        RelativeLayout moviePosterLayout;
 
         MovieViewHolder(View itemView) {
             super(itemView);
-            moviePoster = itemView.findViewById(R.id.img_movie_poster);
-            movieTitle = itemView.findViewById(R.id.tv_movie_title);
-            moviePosterLayout = itemView.findViewById(R.id.rl_movie_poster);
+            ButterKnife.bind(this, itemView);
         }
 
         void bind(Movie movie) {

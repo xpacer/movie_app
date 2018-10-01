@@ -81,7 +81,7 @@ public class DetailActivity extends AppCompatActivity implements NetworkUtils.Qu
 
         mDatabase = AppDatabase.getInstance(this);
 
-        final Movie movie = (Movie) getIntent().getSerializableExtra(Constants.MOVIE_EXTRA_KEY);
+        final Movie movie = getIntent().getParcelableExtra(Constants.MOVIE_EXTRA_KEY);
         setupView(movie);
 
         MainViewModel viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
@@ -124,7 +124,6 @@ public class DetailActivity extends AppCompatActivity implements NetworkUtils.Qu
 
         String imagePath = Constants.TMDB_GRID_POSTER_URL.concat(movie.getPosterPath());
         Picasso.with(this).load(imagePath).into(mPosterImageView);
-
         mWatchTrailer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
