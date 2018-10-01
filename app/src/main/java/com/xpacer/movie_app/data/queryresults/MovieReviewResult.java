@@ -1,10 +1,13 @@
-package com.xpacer.movie_app.data;
+package com.xpacer.movie_app.data.queryresults;
 
 import com.google.gson.annotations.SerializedName;
+import com.xpacer.movie_app.data.models.MovieReview;
 
 import java.util.List;
 
-public class MovieQueryResult {
+public class MovieReviewResult {
+
+    private int id;
 
     private int page;
 
@@ -15,7 +18,7 @@ public class MovieQueryResult {
     private int totalPages;
 
     @SerializedName("results")
-    private List<Movie> results;
+    private List<MovieReview> results;
 
     public int getPage() {
         return page;
@@ -41,11 +44,19 @@ public class MovieQueryResult {
         this.totalPages = totalPages;
     }
 
-    public List<Movie> getResults() {
+    public List<MovieReview> getResults() {
         return results;
     }
 
-    public void setResults(List<Movie> results) {
+    public void setResults(List<MovieReview> results) {
         this.results = results;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -7,4 +7,6 @@ public class Constants {
     public static final String MOVIE_EXTRA_KEY = "movie_extra";
     public static final String TOP_RATED_PATH = "top_rated";
     public static final String POPULAR_PATH = "popular";
+    public static final String REVIEWS_PATH = "%s/reviews";
+    public static final String VIDEOS_PATH = "%s/videos";
 }

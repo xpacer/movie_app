@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.xpacer.movie_app.R;
 import com.xpacer.movie_app.activities.DetailActivity;
-import com.xpacer.movie_app.data.Movie;
+import com.xpacer.movie_app.data.models.Movie;
 import com.xpacer.movie_app.utils.Constants;
 
 import java.util.List;

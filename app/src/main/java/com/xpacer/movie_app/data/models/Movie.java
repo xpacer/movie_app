@@ -1,29 +1,49 @@
-package com.xpacer.movie_app.data;
+package com.xpacer.movie_app.data.models;
+
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+@Entity(tableName = "movies")
 public class Movie implements Serializable {
+    @PrimaryKey
     private int id;
     private boolean video;
+
     @SerializedName("vote_average")
+    @ColumnInfo(name = "vote_average")
     private double voteAverage;
+
     private String title;
+
     private double popularity;
+
     @SerializedName("poster_path")
+    @ColumnInfo(name = "poster_path")
     private String posterPath;
+
     @SerializedName("original_language")
+    @ColumnInfo(name = "original_language")
     private String originalLanguage;
+
     @SerializedName("original_title")
+    @ColumnInfo(name = "original_title")
     private String originalTitle;
-    @SerializedName("genre_ids")
-    private int[] genreIds;
+
     @SerializedName("backdrop_path")
+    @ColumnInfo(name = "backdrop_path")
     private String backdropPath;
+
     private boolean adult;
+
     private String overview;
+
     @SerializedName("release_date")
+    @ColumnInfo(name = "release_date")
     private String releaseDate;
 
     public int getId() {
@@ -46,7 +66,7 @@ public class Movie implements Serializable {
         return voteAverage;
     }
 
-    public void setVoteAverage(int voteAverage) {
+    public void setVoteAverage(double voteAverage) {
         this.voteAverage = voteAverage;
     }
 
@@ -62,7 +82,7 @@ public class Movie implements Serializable {
         return popularity;
     }
 
-    public void setPopularity(int popularity) {
+    public void setPopularity(double popularity) {
         this.popularity = popularity;
     }
 
@@ -90,13 +110,13 @@ public class Movie implements Serializable {
         this.originalTitle = originalTitle;
     }
 
-    public int[] getGenreIds() {
-        return genreIds;
-    }
-
-    public void setGenreIds(int[] genreIds) {
-        this.genreIds = genreIds;
-    }
+//    public int[] getGenreIds() {
+//        return genreIds;
+//    }
+//
+//    public void setGenreIds(int[] genreIds) {
+//        this.genreIds = genreIds;
+//    }
 
     public String getBackdropPath() {
         return backdropPath;
